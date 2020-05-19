@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "CreditRatingService";
+
+package CreditRating;
+
+service CreditRatingCheck{
+    rpc CheckCreditRequest (CreditRequest) returns (CreditResponse);
+    rpc CounterStream(stream CounterRequest) returns (CounterReply);
+}
+
+message CreditRequest{
+    string customerId = 1;
+    int32 credit = 2;
+}
+
+message CreditResponse{
+    bool isAccepted = 1;
+}
+
+message CounterRequest {
+    int32 count = 1;
+}
+
+message CounterReply {
+    int32 total = 1;
+}

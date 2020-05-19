@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "CreditRatingService";
+
+package CreditRating;
+
+service CreditRatingCheck{
+    rpc CheckCreditRequest (CreditRequest) returns (CreditResponse);
+}
+
+message CreditRequest{
+    string customerId = 1;
+    int32 credit = 2;
+}
+
+message CreditResponse{
+    bool isAccepted = 1;
+}
