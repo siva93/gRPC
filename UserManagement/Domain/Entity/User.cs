@@ -1,4 +1,4 @@
-namespace UserDomain
+namespace User.Domain.Entity
 {
     using System;
     public class User 

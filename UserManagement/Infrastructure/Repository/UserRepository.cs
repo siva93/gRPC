@@ -1,11 +1,13 @@
-namespace UserDataAccess
+namespace User.Infrastructure.Repository
 {
     using System;
     using System.Linq;
-    using user_domain;
-    using Microsoft.EntityFrameworkCore;
     using System.Collections;
     using System.Collections.Generic;
+    using User.Domain.Entity;
+    using User.Infrastructure.Interface;
+    using User.Infrastructure.Context;
+    using Microsoft.EntityFrameworkCore;
 
     public class UserRepository : IUserRepository
     {

@@ -1,7 +1,7 @@
-namespace user_data_access
+namespace User.Infrastructure.Interface
 {
     using System;
-    using user_domain;
+    using User.Domain.Entity;
     using System.Collections;
     using System.Collections.Generic;
     public interface IUserRepository 

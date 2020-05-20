@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>user_data_access</RootNamespace>
+    <RootNamespace>User.Infrastructure</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserDomain\UserDomain.csproj" />
+    <ProjectReference Include="..\Domain\User.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using UserServiceProto;
 
-namespace UserApi
+namespace User.Server
 {
-    public class UserService : User.UserBase
+    public class UserService : UserServiceProto.UserService.UserServiceBase
     {
         private readonly ILogger<UserService> _logger;
         public UserService(ILogger<UserService> logger)

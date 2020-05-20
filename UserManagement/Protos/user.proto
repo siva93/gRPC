@@ -1,28 +1,29 @@
 syntax = "proto3";
-option csharp_namespace = "UserApi";
-package User;
 
-service User {
+package UserServiceProto;
+
+service UserService {
     rpc GetUser(GetUserRequest) returns (UserResponse);
     rpc GetUserList(Empty) returns (UserListResponse);
 }
 
-message UserDetail{
+message Empty{
+
+}
+message User {
     int32 userId = 1;
     string name = 2;
     int32 age = 3;
     string userName = 4;
     bool isActive = 5;
 }
-message Empty {
-}
 
 message GetUserRequest {
     int32 userId = 1;
 }
 message UserResponse {
-    UserDetail user = 1;
+    User user = 1;
 }
 message UserListResponse {
-    repeated UserDetail users=1;
+    repeated User users=1;
 }

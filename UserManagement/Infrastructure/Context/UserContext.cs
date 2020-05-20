@@ -1,6 +1,6 @@
-namespace user_data_access
+namespace User.Infrastructure.Context
 {
-    using user_domain;
+    using User.Domain.Entity;
     using Microsoft.EntityFrameworkCore;
     public class UserContext : DbContext
     {
