@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using User.Infrastructure.Interface;
 using User.Infrastructure.Repository;
 using User.Domain.Command;
+using User.Server.Services;
+using AutoMapper;
 
 namespace User.Server
 {
@@ -22,6 +24,7 @@ namespace User.Server
             services.AddDbContext<UserContext>(option=> option.UseInMemoryDatabase("MyUserDb"));
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddMediatR(typeof(AddUserCommand).GetTypeInfo().Assembly);
+            services.AddAutoMapper(typeof(Startup));
             services.AddGrpc();
         }
 
@@ -37,7 +40,10 @@ namespace User.Server
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<UserService>();
+                // endpoints.MapGrpcService<UserService>();
+                endpoints.MapGrpcService<UserIdentityManagementService>();
+                endpoints.MapGrpcService<UserProfileManagementService>();
+                endpoints.MapGrpcService<UserRoleManagementService>();
 
                 endpoints.MapGet("/", async context =>
                 {

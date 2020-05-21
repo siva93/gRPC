@@ -1,0 +1,24 @@
+syntax = "proto3";
+package UserRole;
+
+service UserRole {
+    rpc GetUserRole(GetUserRoleRequest) returns (UserRoleResponse);
+    rpc UpdateUserRole(UpdateUserRoleRequest) returns (Empty);
+}
+
+message Empty{
+}
+
+message GetUserRoleRequest {
+    int32 userId = 1;
+}
+
+message UpdateUserRoleRequest {
+    int32 userId = 1;
+    string role = 2;
+}
+
+message UserRoleResponse {
+    int32 userId = 1;
+    string role = 2;
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package UserIdentity;
+
+service UserIdentity {
+    rpc GetUserIndentity(GetRequest) returns (ResponseMessage);
+    rpc AddUserIndentity(AddRequest) returns (ResponseMessage);
+    rpc UpdateEmail(UpdateEmailRequest) returns (Empty);
+    rpc DeleteUserIndentity(DeleteRequest) returns (Empty);
+}
+
+message Empty{
+}
+
+message GetRequest {
+    string userName = 1;
+}
+
+message AddRequest {
+    string userName = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message UpdateEmailRequest {
+    string userName = 1;
+    string email = 2;
+}
+
+message DeleteRequest {
+    string userName=2;
+}
+
+message ResponseMessage {
+    string email = 2;
+    string userName = 3;
+    bool isActive = 4;
+}

@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\Protos\user.proto" GrpcServices="Server" />
+    <Protobuf Include="..\Protos\userIdentity.proto" GrpcServices="Server" />
+    <Protobuf Include="..\Protos\userProfile.proto" GrpcServices="Server" />
+    <Protobuf Include="..\Protos\userRole.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
     <PackageReference Include="mediatr" Version="8.0.1" />
     <PackageReference Include="mediatr.extensions.microsoft.DependencyInjection" Version="8.0.0" />

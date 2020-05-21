@@ -1,0 +1,36 @@
+syntax = "proto3";
+package UserProfile;
+
+service UserProfile {
+    rpc GetUserProfile(GetUserProfileRequest) returns (UserProfileResponse);
+    rpc UpdateUserProfile(UpdateUserProfileRequest) returns (Empty);
+    rpc CreateUserProfile(CreateUserProfileRequest) returns (UserProfileResponse);
+}
+
+message Empty{
+}
+
+message GetUserProfileRequest {
+    string userId = 1;
+}
+
+message CreateUserProfileRequest {
+    string FirstName = 1;
+    string LastName = 2;
+    string Sex = 3;
+    string Age = 4;
+}
+
+message UpdateUserProfileRequest {
+    string FirstName = 1;
+    string LastName = 2;
+    string Sex = 3;
+    string Age = 4;
+}
+
+message UserProfileResponse {
+    string FirstName = 1;
+    string LastName = 2;
+    string Sex = 3;
+    string Age = 4;
+}
