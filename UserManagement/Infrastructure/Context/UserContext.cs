@@ -1,6 +1,6 @@
 namespace User.Infrastructure.Context
 {
-    using User.Domain.Entity;
+    using User.Infrastructure.Entity;
     using Microsoft.EntityFrameworkCore;
     public class UserContext : DbContext
     {

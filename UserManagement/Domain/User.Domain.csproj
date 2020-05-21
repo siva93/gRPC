@@ -5,4 +5,12 @@
     <RootNamespace>User.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="mediatr" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\User.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

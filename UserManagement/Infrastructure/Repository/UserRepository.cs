@@ -2,9 +2,8 @@ namespace User.Infrastructure.Repository
 {
     using System;
     using System.Linq;
-    using System.Collections;
     using System.Collections.Generic;
-    using User.Domain.Entity;
+    using User.Infrastructure.Entity;
     using User.Infrastructure.Interface;
     using User.Infrastructure.Context;
     using Microsoft.EntityFrameworkCore;
@@ -35,10 +34,11 @@ namespace User.Infrastructure.Repository
             return _userContext.Users.AsNoTracking().ToList();
         }
 
-        public void Add(User user)
+        public User Add(User user)
         {
             _userContext.Add(user);
             _userContext.SaveChanges();
+            return user;
         }
         public void Update(User user)
         {

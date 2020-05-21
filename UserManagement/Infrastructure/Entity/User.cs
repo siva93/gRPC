@@ -1,4 +1,4 @@
-namespace User.Domain.Entity
+namespace User.Infrastructure.Entity
 {
     using System;
     public class User 

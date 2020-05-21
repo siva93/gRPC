@@ -4,7 +4,7 @@ package UserServiceProto;
 
 service UserService {
     rpc GetUser(GetUserRequest) returns (UserResponse);
-    rpc GetUserList(Empty) returns (UserListResponse);
+    rpc AddUser(AddUserRequest) returns (AddUserResponse);
 }
 
 message Empty{
@@ -21,9 +21,17 @@ message User {
 message GetUserRequest {
     int32 userId = 1;
 }
+
 message UserResponse {
     User user = 1;
 }
-message UserListResponse {
-    repeated User users=1;
+
+message AddUserRequest {
+    string name = 1;
+    int32 age = 2;
+    string userName = 3;
+}
+message AddUserResponse {
+    int32 userId=1;
+    string userName=2;
 }
