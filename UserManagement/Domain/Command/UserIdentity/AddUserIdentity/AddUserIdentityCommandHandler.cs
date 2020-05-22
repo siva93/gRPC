@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using AutoMapper;
 using User.Domain.ViewModel;
 using User.Infrastructure.Interface;
 using User.Infrastructure.Entity;
@@ -11,11 +10,9 @@ namespace User.Domain.Command
     public class AddUserIdentityCommandHandler : IRequestHandler<AddUserIdentityCommand, UserIdentityDTO>
     {
         private readonly ICommandRepository _commandRepository;
-        private readonly IMapper _mapper;
-        public AddUserIdentityCommandHandler(ICommandRepository commandRepository, IMapper mapper)
+        public AddUserIdentityCommandHandler(ICommandRepository commandRepository)
         {
             _commandRepository = commandRepository;
-            _mapper = mapper;
         }
         public Task<UserIdentityDTO> Handle(AddUserIdentityCommand request, CancellationToken cancellationToken)
         {

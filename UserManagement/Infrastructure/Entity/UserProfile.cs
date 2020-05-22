@@ -11,7 +11,7 @@ namespace User.Infrastructure.Entity
         public string UserId { get; set; }       
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public char Sex { get; set; }
+        public string Sex { get; set; }
         public int Age { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }     

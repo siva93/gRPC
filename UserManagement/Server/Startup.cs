@@ -7,21 +7,28 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using User.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using User.Infrastructure.Interface;
 using User.Infrastructure.Repository;
 using User.Domain.Query;
 using User.Server.Services;
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 
 namespace User.Server
 {
     public class Startup
     {
+        public readonly IConfiguration Configuration;
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UserContext>(option=> option.UseInMemoryDatabase("MyUserDb"));
+            services.AddDbContext<UserContext>(option => option.UseSqlServer(Configuration.GetConnectionString("UserManagementDb")));
             services.AddTransient<IQueryRepository, QueryRepository>();
             services.AddTransient<ICommandRepository, CommandRepository>();
             services.AddMediatR(typeof(GetUserIdentityQuery).GetTypeInfo().Assembly);

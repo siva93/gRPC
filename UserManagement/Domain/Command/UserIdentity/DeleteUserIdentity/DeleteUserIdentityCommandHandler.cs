@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using AutoMapper;
 using User.Infrastructure.Interface;
 
 namespace User.Domain.Command

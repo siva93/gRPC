@@ -7,6 +7,6 @@ namespace User.Domain.Command
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Sex { get; set; }
-        public string Age { get; set; }
+        public int Age { get; set; }
     }
 }
