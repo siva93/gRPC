@@ -9,7 +9,7 @@ using User.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using User.Infrastructure.Interface;
 using User.Infrastructure.Repository;
-using User.Domain.Command;
+using User.Domain.Query;
 using User.Server.Services;
 using AutoMapper;
 
@@ -22,8 +22,9 @@ namespace User.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UserContext>(option=> option.UseInMemoryDatabase("MyUserDb"));
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddMediatR(typeof(AddUserCommand).GetTypeInfo().Assembly);
+            services.AddTransient<IQueryRepository, QueryRepository>();
+            services.AddTransient<ICommandRepository, CommandRepository>();
+            services.AddMediatR(typeof(GetUserIdentityQuery).GetTypeInfo().Assembly);
             services.AddAutoMapper(typeof(Startup));
             services.AddGrpc();
         }

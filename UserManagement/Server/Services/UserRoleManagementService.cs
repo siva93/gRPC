@@ -24,13 +24,17 @@ namespace User.Server.Services
             _mediator = mediator;
         }
 
-        public override Task<UserRoleResponse> GetUserRole(GetUserRoleRequest request, ServerCallContext context)
+        public override async Task<UserRoleResponse> GetUserRole(GetUserRoleRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new UserRoleResponse());
+            var getUserRoleQuery = _mapper.Map<GetUserRoleQuery>(request);
+            var response = await _mediator.Send(getUserRoleQuery);
+            return _mapper.Map<UserRoleResponse>(response);
         }
-        public override Task<Empty> UpdateUserRole(UpdateUserRoleRequest request, ServerCallContext context)
+        public override async Task<Empty> UpdateUserRole(UpdateUserRoleRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new Empty());
+            var updateUserRoleCommand = _mapper.Map<UpdateUserRoleCommand>(request);
+            var response = await _mediator.Send(updateUserRoleCommand);
+            return new Empty();
         }
     }
 }

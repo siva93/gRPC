@@ -9,12 +9,22 @@ namespace User.Infrastructure.Context
 
         }
 
-        public DbSet<User> Users {get;set;}
+        public DbSet<UserProfile> UserProfiles {get;set;}
+        public DbSet<UserIdentity> UserIndentities {get;set;}
+        public DbSet<UserRole> UserRoles {get;set;}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().HasKey(a => a.Id);
-            modelBuilder.Entity<User>().ToTable("User");
+            
+            modelBuilder.Entity<UserIdentity>().HasKey(a => a.UserId);
+            modelBuilder.Entity<UserIdentity>().ToTable("UserIdentity");
+
+            modelBuilder.Entity<UserProfile>().HasKey(a => a.UserId);
+            modelBuilder.Entity<UserProfile>().ToTable("UserProfile");
+
+            modelBuilder.Entity<UserRole>().HasKey(a => a.UserId);
+            modelBuilder.Entity<UserRole>().ToTable("UserRole");
         }
     }
 }

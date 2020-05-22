@@ -23,18 +23,24 @@ namespace User.Server.Services
             _mediator = mediator;
         }
 
-        public override Task<UserProfileResponse> GetUserProfile(GetUserProfileRequest request, ServerCallContext context)
+        public override async Task<UserProfileResponse> GetUserProfile(GetUserProfileRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new UserProfileResponse());
+            var getUserProfileQuery = _mapper.Map<GetUserProfileQuery>(request);
+            var response = await _mediator.Send(getUserProfileQuery);
+            return _mapper.Map<UserProfileResponse>(response);
         }
 
-        public override Task<Empty> UpdateUserProfile(UpdateUserProfileRequest request, ServerCallContext context)
+        public override async Task<Empty> UpdateUserProfile(UpdateUserProfileRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new Empty());
+            var updateUserProfileCommand = _mapper.Map<UpdateUserProfileCommand>(request);
+            var response = await _mediator.Send(updateUserProfileCommand);
+            return new Empty();
         }
-        public override Task<UserProfileResponse> CreateUserProfile(CreateUserProfileRequest request, ServerCallContext context)
+        public override async Task<UserProfileResponse> CreateUserProfile(CreateUserProfileRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new UserProfileResponse());
+            var createUserProfileCommand = _mapper.Map<CreateUserProfileCommand>(request);
+            var response = await _mediator.Send(createUserProfileCommand);
+            return _mapper.Map<UserProfileResponse>(response);
         }
     }
 }

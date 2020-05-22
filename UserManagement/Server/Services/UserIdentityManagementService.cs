@@ -22,22 +22,31 @@ namespace User.Server.Services
             _mapper = mapper;
             _mediator = mediator;
         }
-
-        public override Task<ResponseMessage> GetUserIndentity(GetRequest request, ServerCallContext context)
+ 
+        public override async Task<UserIdentityResponse> GetUserIdentity(GetUserIdentityRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new ResponseMessage());
+            var getUserIdentityQuery = _mapper.Map<GetUserIdentityQuery>(request);
+            var response = await _mediator.Send(getUserIdentityQuery);
+            return _mapper.Map<UserIdentityResponse>(response);
         }
-        public override Task<ResponseMessage> AddUserIndentity(AddRequest request, ServerCallContext context)
+        public override async Task<UserIdentityResponse> AddUserIdentity(AddUserIdentityRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new ResponseMessage());
+             var addUserIdentityCommand = _mapper.Map<AddUserIdentityCommand>(request);
+            var response = await _mediator.Send(addUserIdentityCommand);
+            return _mapper.Map<UserIdentityResponse>(response);
         }
-        public override Task<Empty> UpdateEmail(UpdateEmailRequest request, ServerCallContext context)
+        public override async Task<Empty> UpdateEmail(UpdateEmailRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new Empty());
+             var updateEmailCommand = _mapper.Map<UpdateEmailCommand>(request);
+            var response = await _mediator.Send(updateEmailCommand);
+            return new Empty();
         }
-        public override Task<Empty> DeleteUserIndentity(DeleteRequest request, ServerCallContext context)
+        
+        public override async Task<Empty> DeleteUserIdentity(DeleteUserIdentityRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new Empty());
+            var deleteUserIdentity = _mapper.Map<DeleteUserIdentityCommand>(request);
+            var response = await _mediator.Send(deleteUserIdentity);
+            return new Empty();
         }
     }
 }

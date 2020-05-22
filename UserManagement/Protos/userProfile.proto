@@ -15,22 +15,24 @@ message GetUserProfileRequest {
 }
 
 message CreateUserProfileRequest {
-    string FirstName = 1;
-    string LastName = 2;
-    string Sex = 3;
-    string Age = 4;
+    string firstName = 1;
+    string lastName = 2;
+    string sex = 3;
+    string age = 4;
 }
 
 message UpdateUserProfileRequest {
-    string FirstName = 1;
-    string LastName = 2;
-    string Sex = 3;
-    string Age = 4;
+    string userId = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string sex = 4;
+    string age = 5;
 }
 
 message UserProfileResponse {
-    string FirstName = 1;
-    string LastName = 2;
-    string Sex = 3;
-    string Age = 4;
+    string userId = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string sex = 4;
+    string age = 5;
 }

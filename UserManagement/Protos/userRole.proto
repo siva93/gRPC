@@ -10,15 +10,15 @@ message Empty{
 }
 
 message GetUserRoleRequest {
-    int32 userId = 1;
+    string userId = 1;
 }
 
 message UpdateUserRoleRequest {
-    int32 userId = 1;
+    string userId = 1;
     string role = 2;
 }
 
 message UserRoleResponse {
-    int32 userId = 1;
+    string userId = 1;
     string role = 2;
 }
