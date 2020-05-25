@@ -11,6 +11,7 @@ namespace User.Domain.ViewModel
             this.Age = profile.Age;
             this.Sex = profile.Sex;
         }
+        
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Sex { get; set; }

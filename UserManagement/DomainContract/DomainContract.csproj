@@ -2,20 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>User.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="mediatr" Version="8.0.1" />
     <PackageReference Include="protobuf-net" Version="2.4.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\User.Infrastructure.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\DomainContract\DomainContract.csproj" />
+    <PackageReference Include="protobuf-net.Grpc" Version="1.0.37" />
   </ItemGroup>
 
 </Project>
